@@ -1,0 +1,132 @@
+@import url("Variables.css");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+header {
+  position: fixed;
+  top: 2vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  transition: top 0.3s; /* smooth animation when hiding/showing */
+}
+
+nav a {
+  margin: 0 7vw;
+  color: #c0cfcf;
+  text-decoration: none;
+  font-size: 2vw;
+}
+
+/* Hero Section */
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: flex;
+  flex-direction: top;
+}
+.hero {
+  position: relative;
+  height: 68vw;
+  width: 100%;
+  background-image: url("/Assets/Images/RugbyBG.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center; /* <-- THIS makes it stick to top */
+  background-color: #211606;
+  overflow: hidden;
+}
+
+.hero-text {
+  position: absolute;
+  top: 1.5vw;
+  width: 100%;
+  text-align: center;
+  z-index: 2; /* must be above background image */
+  color: var(--color-text-light);
+  text-shadow: #000000 0px 0px 20px;
+}
+
+.pc-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.55) translateY(-3.2vw);
+  z-index: 3; /* higher than .hero-text */
+  pointer-events: none;
+}
+
+.hero-text h1 {
+  font-family: var(--font-secondary);
+  font-size: 6vw;
+  font-weight: 300;
+  letter-spacing: 2px;
+  transition: transform 0.1s ease-out;
+}
+
+.top-gradient {
+  width: 100%;
+  height: 200px;
+  z-index: 5; /* must be above background image but below nav if needed */
+  background: linear-gradient(to bottom, #211606, #e6e3d9);
+}
+
+.top-gradient-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-top: 130px;
+}
+
+.top-gradient h2 {
+  margin: 0;
+  font-size: 40px;
+  color: var(--color-text-heading);
+}
+
+/* About Section */
+.about {
+  background-color: var(--color-bg-light);
+  padding: 0px 30px;
+  text-align: left;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-pic {
+  width: 300px;
+  height: auto;
+  border-radius: 30px;
+  margin: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  padding: 20px;
+  color: var(--color-text-body);
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
