@@ -25,3 +25,30 @@ window.addEventListener("scroll", () => {
   // Move it downward a bit as user scrolls
   heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
+
+const carousel = document.getElementById("project-carousel");
+const leftBtn = document.getElementById("scroll-left");
+const rightBtn = document.getElementById("scroll-right");
+
+function updateArrows() {
+  leftBtn.disabled = carousel.scrollLeft <= 0;
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+  rightBtn.disabled = carousel.scrollLeft >= maxScrollLeft - 1;
+}
+
+leftBtn.addEventListener("click", () => {
+  carousel.scrollBy({
+    left: -carousel.clientWidth / 2 - 10,
+    behavior: "smooth",
+  });
+});
+
+rightBtn.addEventListener("click", () => {
+  carousel.scrollBy({
+    left: carousel.clientWidth / 2 + 10,
+    behavior: "smooth",
+  });
+});
+
+carousel.addEventListener("scroll", updateArrows);
+window.addEventListener("load", updateArrows);
