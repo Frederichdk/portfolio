@@ -170,6 +170,8 @@ nav a {
   scrollbar-width: none;
   box-sizing: border-box;
   max-width: 1300px;
+  padding: 1.5vw;
+  scroll-snap-type: x mandatory;
 }
 
 .carousel::-webkit-scrollbar {
@@ -185,6 +187,12 @@ nav a {
   height: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  /* scroll-snap-align: start; */ /* messing with the JS that hides the arrow and the start and end*/
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
 }
 
 .project-img {

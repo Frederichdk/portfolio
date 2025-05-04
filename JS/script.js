@@ -26,9 +26,21 @@ window.addEventListener("scroll", () => {
   heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
 
+/**
+ * this is for the project carousel
+ * it will scroll left and right
+ * and disable the buttons when at the end
+ */
 const carousel = document.getElementById("project-carousel");
 const leftBtn = document.getElementById("scroll-left");
 const rightBtn = document.getElementById("scroll-right");
+
+function getScrollAmount() {
+  const card = carousel.querySelector(".project-card");
+  const style = getComputedStyle(carousel);
+  const gap = parseFloat(style.gap) || 0;
+  return card.offsetWidth + gap;
+}
 
 function updateArrows() {
   leftBtn.disabled = carousel.scrollLeft <= 0;
@@ -38,14 +50,14 @@ function updateArrows() {
 
 leftBtn.addEventListener("click", () => {
   carousel.scrollBy({
-    left: -carousel.clientWidth / 2 - 10,
+    left: -getScrollAmount(),
     behavior: "smooth",
   });
 });
 
 rightBtn.addEventListener("click", () => {
   carousel.scrollBy({
-    left: carousel.clientWidth / 2 + 10,
+    left: getScrollAmount(),
     behavior: "smooth",
   });
 });
