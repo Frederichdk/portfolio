@@ -160,16 +160,16 @@ nav a {
 
 .scroll-indicator span {
   display: block;
-  font-size: 14px;
+  font-size: 1vw; /* updated indicartor text size REMEBER */
   margin-bottom: 6px;
   opacity: 0.8;
 }
 
 .scroll-indicator .arrow {
-  width: 10px;
-  height: 10px;
-  border-left: 2px solid var(--color-text-light);
-  border-bottom: 2px solid var(--color-text-light);
+  width: 1vw;
+  height: 1vw;
+  border-left: 0.2vw solid var(--color-text-light);
+  border-bottom: 0.2vw solid var(--color-text-light);
   transform: rotate(-45deg);
   margin: 0 auto;
 }
