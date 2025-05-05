@@ -4,15 +4,24 @@
 let lastScrollTop = 0;
 const header = document.querySelector("header");
 
-window.addEventListener("scroll", function () {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
 
-  if (scrollTop > lastScrollTop) {
+  // Sticky fade-in background
+  if (scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+
+  // Smart hide/show nav bar
+  if (scrollY > lastScrollTop) {
     header.style.top = "-100px";
   } else {
-    header.style.top = "2vw";
+    header.style.top = "0"; // stick flush to top
   }
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+  lastScrollTop = scrollY <= 0 ? 0 : scrollY;
 });
 
 /**
@@ -89,4 +98,17 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
       });
     }
   });
+});
+
+/**
+ * this is for the header to change color on scroll
+ * it will change the color of the header when scrolling down
+ * and change it back when scrolling up
+ */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 });

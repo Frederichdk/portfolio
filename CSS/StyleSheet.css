@@ -13,12 +13,22 @@ html {
 
 header {
   position: fixed;
-  top: 2vw;
+  top: 0; /* critical */
   width: 100%;
   display: flex;
   justify-content: center;
   z-index: 10;
-  transition: top 0.3s; /* smooth animation when hiding/showing */
+  transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent;
+  padding: 20px 0;
+}
+
+header.scrolled {
+  background-color: rgba(33, 22, 6, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav a {
