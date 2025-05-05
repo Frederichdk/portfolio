@@ -1,5 +1,9 @@
 @import url("Variables.css");
 
+html {
+  scroll-behavior: auto; /* or just remove it entirely */
+}
+
 body,
 html {
   margin: 0;
@@ -320,7 +324,7 @@ nav a {
 .resume-header {
   /* text-align: center; */
   margin-bottom: 40px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto 30px auto;
 }
 
@@ -361,7 +365,7 @@ nav a {
   height: 1px;
   background-color: var(--color-divider);
   margin: 60px auto;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .resume-education {
@@ -593,5 +597,89 @@ nav a {
   .contact-form input,
   .contact-form textarea {
     font-size: 14px;
+  }
+}
+
+/* 
+  FOOTER SECTION
+*/
+
+footer {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 60px 30px 40px;
+  font-family: var(--font-primary);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.contact-links i {
+  font-size: 22px;
+}
+
+.contact-links a {
+  color: var(--color-accent);
+  font-size: 24px;
+  margin-right: 15px;
+  transition: transform 0.2s ease;
+}
+
+.contact-links a:hover {
+  transform: scale(1.2);
+  color: var(--color-secondary);
+}
+
+.footer-map {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+footer .contact-links a:hover {
+  color: var(--color-bg-light); /* light beige */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
   }
 }

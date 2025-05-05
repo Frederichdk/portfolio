@@ -64,3 +64,29 @@ rightBtn.addEventListener("click", () => {
 
 carousel.addEventListener("scroll", updateArrows);
 window.addEventListener("load", updateArrows);
+
+/**
+ * for scrooling to the section when clicking on the nav bar
+ * it will scroll to the section smoothly
+ * and highlight the active section
+ */
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+
+    // Skip if it's not a valid in-page anchor
+    if (targetId === "#" || targetId === "") return;
+
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+
+      const offsetTop = target.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  });
+});
