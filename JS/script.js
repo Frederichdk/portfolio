@@ -35,6 +35,20 @@ window.addEventListener("scroll", () => {
 });
 
 /*
+ * Scroll indicator: hides when scrolled down
+ * (only shows on first page load)
+ */
+const scrollIndicator = document.getElementById("scroll-indicator");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    scrollIndicator.classList.add("hide");
+  } else {
+    scrollIndicator.classList.remove("hide");
+  }
+});
+
+/*
  * Project carousel scroll left/right and arrow state
  */
 const carousel = document.getElementById("project-carousel");

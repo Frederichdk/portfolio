@@ -146,6 +146,52 @@ nav a {
   line-height: 1.7;
 }
 
+.scroll-indicator {
+  position: absolute;
+  bottom: 15vw; /* I will forget, this is for scrolling indicator height */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: bounce 2s infinite;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 5;
+  color: var(--color-text-light); /* match your hero text */
+}
+
+.scroll-indicator span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+.scroll-indicator .arrow {
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid var(--color-text-light);
+  border-bottom: 2px solid var(--color-text-light);
+  transform: rotate(-45deg);
+  margin: 0 auto;
+}
+
+/* bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+/* hidden class for scroll-away effect */
+.scroll-indicator.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(30px);
+  pointer-events: none;
+}
+
 /* 
   PAGE 2
   Project Section
