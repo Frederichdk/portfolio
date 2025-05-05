@@ -1,7 +1,7 @@
 @import url("Variables.css");
 
 html {
-  scroll-behavior: auto; /* or just remove it entirely */
+  scroll-behavior: smooth; /* or just remove it entirely */
 }
 
 body,

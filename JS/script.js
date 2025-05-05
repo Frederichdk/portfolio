@@ -1,5 +1,5 @@
 /*
- * this is for the smart nav bar to appear and disappear on scroll
+ * Smart nav bar: appears on scroll up, hides on scroll down, changes style on scroll
  */
 let lastScrollTop = 0;
 const header = document.querySelector("header");
@@ -7,7 +7,7 @@ const header = document.querySelector("header");
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
 
-  // Sticky fade-in background
+  // Apply faded background and shadow after scrolling
   if (scrollY > 50) {
     header.classList.add("scrolled");
   } else {
@@ -24,21 +24,18 @@ window.addEventListener("scroll", () => {
   lastScrollTop = scrollY <= 0 ? 0 : scrollY;
 });
 
-/**
- * this is for my name animation on the hero section
+/*
+ * Hero name animation on scroll
  */
 const heroText = document.querySelector(".hero-text h1");
 
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  // Move it downward a bit as user scrolls
   heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
 
-/**
- * this is for the project carousel
- * it will scroll left and right
- * and disable the buttons when at the end
+/*
+ * Project carousel scroll left/right and arrow state
  */
 const carousel = document.getElementById("project-carousel");
 const leftBtn = document.getElementById("scroll-left");
@@ -57,58 +54,44 @@ function updateArrows() {
   rightBtn.disabled = carousel.scrollLeft >= maxScrollLeft - 1;
 }
 
-leftBtn.addEventListener("click", () => {
+leftBtn?.addEventListener("click", () => {
   carousel.scrollBy({
     left: -getScrollAmount(),
     behavior: "smooth",
   });
 });
 
-rightBtn.addEventListener("click", () => {
+rightBtn?.addEventListener("click", () => {
   carousel.scrollBy({
     left: getScrollAmount(),
     behavior: "smooth",
   });
 });
 
-carousel.addEventListener("scroll", updateArrows);
+carousel?.addEventListener("scroll", updateArrows);
 window.addEventListener("load", updateArrows);
 
-/**
- * for scrooling to the section when clicking on the nav bar
- * it will scroll to the section smoothly
- * and highlight the active section
+/*
+ * Smooth scroll for all nav and footer links
  */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", function (e) {
     const targetId = this.getAttribute("href");
-
-    // Skip if it's not a valid in-page anchor
     if (targetId === "#" || targetId === "") return;
 
     const target = document.querySelector(targetId);
     if (target) {
       e.preventDefault();
 
-      const offsetTop = target.getBoundingClientRect().top + window.scrollY;
+      const headerOffset = header.offsetHeight;
+      const elementPosition =
+        target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
 
       window.scrollTo({
-        top: offsetTop,
+        top: offsetPosition,
         behavior: "smooth",
       });
     }
   });
-});
-
-/**
- * this is for the header to change color on scroll
- * it will change the color of the header when scrolling down
- * and change it back when scrolling up
- */
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
 });
