@@ -143,8 +143,7 @@ nav a {
 }
 
 .projects-heading {
-  font-size: var(--section-title-size);
-  font-family: var(--font-secondary);
+  font-size: 40px;
   color: var(--color-text-heading);
   margin-bottom: 30px;
   text-align: left;
@@ -164,7 +163,7 @@ nav a {
 .carousel {
   display: flex;
   flex-wrap: nowrap;
-  gap: 9vw;
+  gap: 11vw;
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -180,9 +179,10 @@ nav a {
 
 .project-card {
   background-color: white;
-  max-width: 500px;
+  max-width: 400px;
+  min-width: 200px;
   border-radius: 20px;
-  flex: 0 0 35vw;
+  flex: 0 0 30vw;
   padding: 20px;
   height: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -211,7 +211,7 @@ nav a {
 .project-card p {
   color: var(--color-text-body);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .github-btn {
@@ -239,4 +239,62 @@ nav a {
 .carousel-btn[disabled] {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 1706px) {
+  .carousel {
+    max-width: 1600px;
+    gap: 100px;
+  }
+  .project-card {
+    flex: 0 0 34vw;
+    /* max-width: 600px; */
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1705px) {
+  .carousel-wrapper {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  .carousel {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    max-width: 1700px;
+    gap: 100px;
+  }
+  .project-card {
+    flex: 0 0 35vw;
+    /* max-width: 600px; */
+  }
+}
+
+/* I need to get rip of this one DONT FORGET*/
+@media (max-width: 810px) {
+  .carousel {
+    gap: 5vw;
+  }
+  .project-card {
+    flex: 0 0 30vw;
+  }
+  .carousel-wrapper {
+    width: 97%;
+  }
+}
+
+@media (max-width: 730px) {
+  .carousel-wrapper {
+    width: 330px;
+    margin: 0 auto;
+  }
+
+  .carousel {
+    gap: 4vw;
+  }
+
+  .project-card {
+    flex: 0 0 30vw;
+    max-width: 200px;
+  }
 }
