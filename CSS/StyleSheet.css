@@ -104,17 +104,18 @@ nav a {
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 30px;
 }
 
 .profile-pic {
   width: 300px;
   height: auto;
   border-radius: 30px;
-  margin: 20px;
+  margin: 0px 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
