@@ -109,23 +109,3 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     }
   });
 });
-
-/*
- * Sticky footer reveal on scroll
- * currently not working this is great
- */
-const footer = document.querySelector("footer");
-
-const revealFooter = () => {
-  const scrollBottom = window.innerHeight + window.scrollY;
-  const docHeight = document.documentElement.offsetHeight;
-
-  if (scrollBottom >= docHeight - 10) {
-    footer.classList.add("revealed");
-  } else {
-    footer.classList.remove("revealed");
-  }
-};
-
-window.addEventListener("scroll", revealFooter);
-window.addEventListener("load", revealFooter);
