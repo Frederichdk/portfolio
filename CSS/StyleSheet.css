@@ -21,7 +21,7 @@ nav a {
   margin: 0 7vw;
   color: #c0cfcf;
   text-decoration: none;
-  font-size: 2vw;
+  font-size: 1.2vw;
 }
 
 /* Hero Section */
@@ -82,7 +82,7 @@ nav a {
 }
 
 .top-gradient-content {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: 30px;
   padding-top: 130px;
@@ -106,7 +106,7 @@ nav a {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -147,7 +147,7 @@ nav a {
   color: var(--color-text-heading);
   margin-bottom: 30px;
   text-align: left;
-  max-width: 1000px;
+  max-width: 1200px;
   margin-inline: auto;
 }
 
@@ -319,7 +319,7 @@ nav a {
 .resume-header {
   /* text-align: center; */
   margin-bottom: 40px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto 30px auto;
 }
 
@@ -360,7 +360,7 @@ nav a {
   height: 1px;
   background-color: var(--color-divider);
   margin: 60px auto;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .resume-education {
