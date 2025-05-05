@@ -36,7 +36,7 @@ nav a {
   position: relative;
   height: 68vw;
   width: 100%;
-  background-image: url("/Assets/Images/RugbyBG.png");
+  background-image: url("Assets/Images/RugbyBG.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top center; /* <-- THIS makes it stick to top */
