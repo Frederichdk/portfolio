@@ -141,7 +141,7 @@ document.getElementById("contactpage").addEventListener("submit", function (e) {
   };
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbwnGeAgcatjS94Y1m5KaFDB2iUXkuSpw382lWXkvrykJnkyERXMNX2KA57rSmriB4RoQ/exec",
+    "https://script.google.com/macros/s/AKfycbwnGeAgcatjS94Y1m5KaFDB2iUXkuSpw382IWXkvrykjJnkyERXMNX2KA57rSmriB4RoQ/exec",
     {
       method: "POST",
       body: JSON.stringify(formData),
