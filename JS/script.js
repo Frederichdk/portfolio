@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
     preloader.style.opacity = "0";
     preloader.style.pointerEvents = "none";
     setTimeout(() => preloader.remove(), 500); // give time for fade-out
-  }, 2000);
+  }, 1000);
 });
 
 /*
@@ -122,6 +122,50 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
       });
     }
   });
+});
+
+/*
+ * Contact form: submits to Google Apps Script + shows success message
+ */
+document.getElementById("contactpage").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const successBox = document.getElementById("form-success");
+
+  const formData = {
+    firstName: form.firstName.value,
+    lastName: form.lastName.value,
+    email: form.email.value,
+    message: form.message.value,
+  };
+
+  fetch(
+    "https://script.google.com/macros/s/AKfycbwnGeAgcatjS94Y1m5KaFDB2iUXkuSpw382lWXkvrykJnkyERXMNX2KA57rSmriB4RoQ/exec",
+    {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((res) => {
+      if (res.ok) {
+        form.reset();
+        successBox.classList.remove("hidden");
+        setTimeout(() => {
+          successBox.classList.add("show");
+        }, 10); // allow transition
+        setTimeout(() => {
+          successBox.classList.remove("show");
+          setTimeout(() => successBox.classList.add("hidden"), 300);
+        }, 5000); // auto-hide after 5s
+      } else {
+        alert(" Something went wrong. Please try again.");
+      }
+    })
+    .catch(() => alert(" Network error. Try again later."));
 });
 
 /*
