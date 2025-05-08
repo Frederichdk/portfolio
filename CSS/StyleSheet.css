@@ -1,0 +1,995 @@
+@import url("Variables.css");
+
+/* ========== Loading Screen ========== */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-bg-light); /* Match your background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.4s ease;
+}
+
+.loader-text span {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  transform: translateY(0);
+  animation: bounce 1.2s infinite;
+  animation-delay: calc(0.1s * var(--i));
+  animation-fill-mode: both; /* <- key fix */
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.loader-text span:nth-child(5) {
+  padding-right: 8px;
+}
+.loader-text span:nth-child(1) {
+  --i: 1;
+}
+.loader-text span:nth-child(2) {
+  --i: 2;
+}
+.loader-text span:nth-child(3) {
+  --i: 3;
+}
+.loader-text span:nth-child(4) {
+  --i: 4;
+}
+.loader-text span:nth-child(5) {
+  --i: 5;
+}
+.loader-text span:nth-child(6) {
+  --i: 6;
+}
+.loader-text span:nth-child(7) {
+  --i: 7;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    color: #000;
+  }
+  50% {
+    transform: translateY(-10px);
+    color: #8e44ad; /* Any accent color you want */
+  }
+}
+
+/* ========== Home Screen ========== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  /* margin-bottom: 330px; */
+  z-index: 2;
+}
+
+header {
+  position: fixed;
+  top: 0; /* critical */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent;
+  padding: 20px 0;
+}
+
+header.scrolled {
+  background-color: rgba(33, 22, 6, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav a {
+  margin: 0 7vw;
+  color: #c0cfcf;
+  text-decoration: none;
+  font-size: 1.2vw;
+}
+
+/* Hero Section */
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: flex;
+  flex-direction: top;
+}
+.hero {
+  position: relative;
+  height: 68vw;
+  width: 100%;
+  background-image: url("../Assets/Images/RugbyBG.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center; /* <-- THIS makes it stick to top */
+  background-color: #211606;
+  overflow: hidden;
+}
+
+.hero-text {
+  position: absolute;
+  top: 1.5vw;
+  width: 100%;
+  text-align: center;
+  z-index: 2; /* must be above background image */
+  color: var(--color-text-light);
+  text-shadow: #000000 0px 0px 20px;
+}
+
+.pc-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.55) translateY(-3.2vw);
+  z-index: 3; /* higher than .hero-text */
+  pointer-events: none;
+}
+
+.hero-text h1 {
+  font-family: var(--font-secondary);
+  font-size: 6vw;
+  font-weight: 300;
+  letter-spacing: 2px;
+  transition: transform 0.1s ease-out;
+}
+
+.top-gradient {
+  width: 100%;
+  height: 200px;
+  z-index: 5; /* must be above background image but below nav if needed */
+  background: linear-gradient(to bottom, #211606, #e6e3d9);
+}
+
+.top-gradient-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 130px;
+}
+
+.top-gradient h2 {
+  margin: 0;
+  font-size: 40px;
+  color: var(--color-text-heading);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 15vw; /* I will forget, this is for scrolling indicator height */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: bounce 2s infinite;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 5;
+  color: var(--color-text-light); /* match your hero text */
+}
+
+.scroll-indicator span {
+  display: block;
+  font-size: 1vw; /* updated indicartor text size REMEBER */
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+.scroll-indicator .arrow {
+  width: 1vw;
+  height: 1vw;
+  border-left: 0.2vw solid var(--color-text-light);
+  border-bottom: 0.2vw solid var(--color-text-light);
+  transform: rotate(-45deg);
+  margin: 0 auto;
+}
+
+/* bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+/* hidden class for scroll-away effect */
+.scroll-indicator.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(30px);
+  pointer-events: none;
+}
+
+/* About Section */
+.about {
+  background-color: var(--color-bg-light);
+  padding: 0px 30px;
+  text-align: left;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.profile-pic {
+  width: 300px;
+  height: auto;
+  border-radius: 30px;
+  margin: 0px 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  padding: 20px;
+  color: var(--color-text-body);
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* ========== Project Page ========== */
+
+/* 
+  PAGE 2
+  Project Section
+*/
+
+.projects-carousel {
+  background-color: var(--color-bg-light);
+  padding: 80px 30px;
+  position: relative;
+}
+
+.projects-heading {
+  font-size: 40px;
+  color: var(--color-text-heading);
+  margin-bottom: 30px;
+  text-align: left;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 11vw;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  box-sizing: border-box;
+  max-width: 1300px;
+  padding: 1.5vw;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  background-color: white;
+  max-width: 400px;
+  min-width: 200px;
+  border-radius: 20px;
+  flex: 0 0 30vw;
+  padding: 20px;
+  height: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  /* scroll-snap-align: start; */ /* messing with the JS that hides the arrow and the start and end*/
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.project-img {
+  width: 80%;
+  max-height: 300px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.project-card h3 {
+  margin: 10px 0 10px;
+  font-size: 1.5rem;
+  color: var(--color-text-heading);
+}
+
+.project-card p {
+  color: var(--color-text-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.github-btn {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 8px 16px;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.github-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 10px;
+  color: var(--color-text-heading);
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+
+.carousel-btn[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 1706px) {
+  .carousel {
+    max-width: 1600px;
+    gap: 100px;
+  }
+  .project-card {
+    flex: 0 0 34vw;
+    /* max-width: 600px; */
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1705px) {
+  .carousel-wrapper {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  .carousel {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    max-width: 1700px;
+    gap: 100px;
+  }
+  .project-card {
+    flex: 0 0 35vw;
+    /* max-width: 600px; */
+  }
+}
+
+/* I need to get rip of this one DONT FORGET*/
+@media (max-width: 810px) {
+  .carousel {
+    gap: 5vw;
+  }
+  .project-card {
+    flex: 0 0 30vw;
+  }
+  .carousel-wrapper {
+    width: 97%;
+  }
+}
+
+@media (max-width: 730px) {
+  .carousel-wrapper {
+    width: 330px;
+    margin: 0 auto;
+  }
+
+  .carousel {
+    gap: 4vw;
+  }
+
+  .project-card {
+    flex: 0 0 30vw;
+  }
+}
+
+/* ========== Resume Page ========== */
+
+/*
+  PAGE 3
+  Resume Section
+*/
+
+/* Resume Page Styles */
+
+.resume-page {
+  background-color: var(--color-bg-light);
+  padding: 80px 30px;
+  font-family: var(--font-primary);
+}
+
+.resume-header {
+  /* text-align: center; */
+  margin-bottom: 40px;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+}
+
+.resume-header h1 {
+  font-size: 48px;
+  color: var(--color-text-heading);
+  margin-bottom: 10px;
+}
+
+.resume-page h2 {
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+  color: var(--color-text-heading);
+}
+
+.resume-tagline {
+  font-size: 20px;
+  color: var(--color-text-body);
+  margin-bottom: 20px;
+}
+
+.resume-download {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.resume-download:hover {
+  background-color: var(--color-secondary);
+}
+
+.resume-divider {
+  border: none;
+  height: 1px;
+  background-color: var(--color-divider);
+  margin: 60px auto;
+  max-width: 1000px;
+}
+
+.resume-education {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.edu-item {
+  flex: 1 1 300px;
+  font-size: 16px;
+  color: var(--color-text-body);
+}
+.edu-item p {
+  margin: 4px 0;
+}
+
+.resume-experience {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.exp-card {
+  background: var(--color-bg-dark);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.exp-card h3 {
+  font-size: 18px;
+  color: var(--color-text-heading);
+  margin-bottom: 8px;
+}
+
+.exp-card p {
+  font-size: 15px;
+  color: var(--color-text-body);
+}
+
+.resume-skills .skills-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.resume-skills h2 {
+  max-width: 1000px;
+  font-size: 24px;
+  color: var(--color-text-heading);
+  margin-bottom: 20px;
+}
+
+.resume-skills p {
+  font-size: 16px;
+  color: var(--color-text-body);
+  line-height: 1.6;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.skills-list span {
+  background-color: var(--color-bg-dark);
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 50px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .resume-header h1 {
+    font-size: 36px;
+  }
+
+  .resume-tagline {
+    font-size: 16px;
+  }
+
+  .resume-education,
+  .resume-experience {
+    gap: 20px;
+  }
+
+  .resume-skills h2 {
+    font-size: 20px;
+  }
+
+  .resume-skills p {
+    font-size: 14px;
+  }
+}
+
+/* ========== Contact Page ========== */
+
+/*
+  PAGE 4
+  Contact Section
+*/
+/* Contact Page Styles */
+
+.contact-page {
+  background-color: var(--color-bg-light);
+  padding: 80px 30px;
+  font-family: var(--font-primary);
+}
+
+.contact-heading {
+  font-size: 48px;
+  color: var(--color-text-heading);
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 90px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.contact-info {
+  margin-top: 0px;
+  flex: 1 1 400px;
+  color: var(--color-text-body);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.contact-text {
+  margin-top: 0px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.contact-subtext,
+.contact-location {
+  font-size: 16px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.contact-links a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-form {
+  margin-top: 0px;
+
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  resize: vertical;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  padding: 12px 24px;
+  background-color: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .contact-heading {
+    font-size: 36px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+}
+
+/* ========== Footer ========== */
+
+/* 
+  FOOTER SECTION
+*/
+
+.footer-wrapper {
+  height: 330px; /* Footer height */
+  position: relative;
+  z-index: 0;
+}
+
+.footer-reveal {
+  height: 100vh;
+  position: relative;
+  top: calc(-100vh + 330px);
+}
+
+footer {
+  position: sticky;
+  top: calc(100vh - 330px);
+  height: 330px;
+  background-color: var(--color-secondary);
+  color: white;
+  z-index: 10;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.contact-links i {
+  font-size: 22px;
+}
+
+.contact-links a {
+  color: var(--color-accent);
+  font-size: 24px;
+  margin-right: 15px;
+  transition: transform 0.2s ease;
+}
+
+.contact-links a:hover {
+  transform: scale(1.2);
+  color: var(--color-secondary);
+}
+
+.footer-map {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+footer .contact-links a:hover {
+  color: var(--color-bg-light); /* light beige */
+}
+
+.footer-row {
+  display: contents;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* ========== Mobile Optimizations ========== */
+#mobile-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  font-family: sans-serif;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#dismiss-popup {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 780px) {
+  nav a {
+    margin: 0 4vw;
+    font-size: 4vw;
+  }
+
+  .hero {
+    box-sizing: border-box;
+    padding-bottom: 200px;
+    background-image: url("../Assets/Images/Rugby2Cell.png");
+    height: 150vw;
+  }
+
+  .hero-text {
+    top: 9vw;
+  }
+
+  .pc-overlay {
+    transform: scale(0.58) translatey(-2vw) !important;
+  }
+
+  .hero-text h1 {
+    font-size: 8vw;
+    padding: 10px;
+  }
+
+  .scroll-indicator {
+    bottom: 10vw;
+  }
+  .scroll-indicator span {
+    font-size: 4vw;
+  }
+  .scroll-indicator .arrow {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .top-gradient h2 {
+    text-align: center;
+  }
+
+  .about-content {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .profile-pic {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  .about-text {
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .projects-heading {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .resume-header h1,
+  .contact-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .resume-download {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .footer-container {
+    padding: 0px;
+    gap: 0px;
+  }
+
+  .contact-links {
+    gap: 0px;
+    margin-top: 0px;
+  }
+
+  .footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0px;
+    width: 100%;
+  }
+
+  .footer-row .footer-column {
+    flex: 1 1 45%;
+    min-width: 140px;
+    align-items: center;
+  }
+
+  .footer-container > .footer-column:last-child {
+    flex: 1 1 100%;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+  .footer-map {
+    width: 90%;
+    max-width: 400px;
+    height: 120px;
+    margin: 15px auto;
+  }
+
+  .footer-column.mobile h4 {
+    display: none;
+  }
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frederich de Koker</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/StyleSheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-text">
+            <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="#homepage">Home</a>
+            <a href="#projectspage">Projects</a>
+            <a href="#resumepage">Resume</a>
+            <a href="#contactpage">Contact</a>
+        </nav>
+    </header>
+    <main>
+
+
+
+        <section class="hero" id="homepage">
+            <div class="hero-text">
+                <h1>Frederich de Koker</h1>
+            </div>
+            <img src="Assets/Images/rugby2-cutout.png" class="pc-overlay" id="hero-image" alt="PC Layer">
+            <div id="mobile-popup">
+                <div class="popup-content">
+                    <p>This site is best viewed on a desktop for now.</p>
+                    <button id="dismiss-popup">Got it</button>
+                </div>
+            </div>
+
+            <div class="scroll-indicator" id="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="arrow"></div>
+            </div>
+
+        </section>
+
+        <div class="top-gradient">
+            <div class="top-gradient-content">
+                <h2>Behind the Code</h2>
+            </div>
+        </div>
+
+        <section class="about">
+            <div class="about-content">
+                <img src="Assets/Images/Fred.jpg" alt="Frederich Photo" class="profile-pic">
+                <div class="about-text">
+                    <p>Hi, I’m Frederich de Koker — a recent Computer Science graduate, rugby player, and passionate
+                        developer with a love for building clean, useful, and human-centered apps.</p>
+                    <p>Originally from South Africa, I came to the U.S. to study and expand my opportunities in tech.
+                        Since
+                        then, I’ve worked on everything from fitness tracking apps to large-scale group projects like
+                        Drinksity, a beverage passport app built using SwiftUI and Firebase. I’m especially interested
+                        in
+                        full-stack development, with experience across Swift, React, Java, and cloud services like AWS.
+                    </p>
+                    <p>Right now, I’m looking for a role where I can grow as a software engineer, keep learning, and
+                        contribute to projects that make a difference—big or small. When I’m not coding, you can usually
+                        find me at the gym, on a bike ride, or diving into my next personal project.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-carousel" id="projectspage">
+            <h2 class="projects-heading">Projects</h2>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-btn left" id="scroll-left">&#10094;</button>
+
+                <div class="carousel" id="project-carousel">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <img src="Assets/Images/LiftSync-cutout.png" alt="Lift Sync App" class="project-img" />
+                        <h3>Workout Tracker</h3>
+                        <a href="https://github.com/Rory3140/workout-tracker" target="_blank"
+                            class="github-btn">GitHub</a>
+                        <p>A SwiftUI fitness app further developing the Rep Counter project. It introduces workout
+                            tracking, goal setting, and visual progress features for an improved fitness experience.</p>
+
+                    </div>
+                    <div class="project-card">
+                        <img src="Assets/Images/RepCounter-cutout.png" alt="Rep Counter" class="project-img" />
+                        <h3>Rep Counter</h3>
+                        <a href="https://github.com/Frederichdk/rep-counter" target="_blank"
+                            class="github-btn">GitHub</a>
+                        <p>A cross-platform fitness app developed with React Native & Firebase. Allows users to count
+                            repetitions, track progress, and view workout streaks.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="Assets/Images/Drinksity.png" alt="Drinksity" class="project-img" />
+                        <h3>Drinksity</h3>
+                        <a href="https://github.com/SienaCollegeSoftwareEngineering/Drinksity" target="_blank"
+                            class="github-btn">GitHub</a>
+                        <p>A SwiftUI-based mobile app that lets users explore drink trails, collect stamps, and track
+                            progress with a passport-style interface. Focused on clean UI, navigation, and Firestore
+                            integration.</p>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <img src="Assets/Images/MatchGame-cutout.png" alt="Match Game" class="project-img" />
+                        <h3>Match Game</h3>
+                        <a href="https://github.com/Frederichdk/matchGame" target="_blank" class="github-btn">GitHub</a>
+                        <p>A fun and interactive React Native game where users match pairs of cards. Features randomized
+                            placement, score tracking, and a simple UI. </p>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card">
+                        <img src="Assets/Images/HTMLGame.png" alt="HTML Game" class="project-img project3" />
+                        <h3>HTML Game</h3>
+                        <a href="https://github.com/Frederichdk/HTMLGame" target="_blank" class="github-btn">GitHub</a>
+                        <p>A browser-based adventure game built with HTML, CSS, and JavaScript. Players make choices,
+                            solve
+                            puzzles, and complete a fantasy quest.</p>
+                    </div>
+                </div>
+
+                <button class="carousel-btn right" id="scroll-right">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="resume-page" id="resumepage">
+            <div class="resume-header">
+                <h1>Software Developer</h1>
+                <p class="resume-tagline">Building software that solves problems, looks good, and feels great to use</p>
+                <a href="Assets/Frederich_De_Koker_Resume.pdf" class="resume-download" download>Download Resume</a>
+            </div>
+
+            <hr class="resume-divider" />
+
+            <h2>Education</h2>
+            <div class="resume-education">
+                <div class="edu-item">
+                    <p><strong>Siena College</strong></p>
+                    <p>BSc in Computer Science (Software Engineering)</p>
+                    <p><strong>GPA - 3.44</strong></p>
+                    <p>Loudonville, New York</p>
+                </div>
+                <div class="edu-item">
+                    <p><strong>Uplands College</strong></p>
+                    <p>IEB Senior Certification</p>
+                    <p>White River, Mpumalanga</p>
+                </div>
+            </div>
+
+            <hr class="resume-divider" />
+
+            <h2>Experience</h2>
+            <div class="resume-experience">
+                <div class="exp-card">
+                    <h3>Drinksity App - Senior Project</h3>
+                    <p>Developing a Swift app for a client in a team-based environment, using Agile methodologies like
+                        sprints and iterative development, while focusing on UI/UX, back-end integration, and
+                        client-driven
+                        enhancements.</p>
+                </div>
+                <div class="exp-card">
+                    <h3>Community Assistant</h3>
+                    <p>Led various responsibilities within the residential community, enhancing leadership and
+                        interpersonal
+                        communication skills while serving as a liaison between staff and residents.</p>
+                </div>
+                <div class="exp-card">
+                    <h3>Division 1 Men’s Rugby</h3>
+                    <p>Competed at a high level, contributing to a National Championship win while strengthening
+                        teamwork,
+                        strategic thinking, and leadership both on and off the field.</p>
+                </div>
+                <div class="exp-card">
+                    <h3>President’s Award - Gold</h3>
+                    <p>Demonstrated a strong commitment to community service and personal growth, earning the Duke of
+                        Edinburgh's International Award in South Africa through consistent dedication and high
+                        achievement.
+                    </p>
+                </div>
+                <div class="exp-card">
+                    <h3>Leadership Symposium</h3>
+                    <p>Demonstrated a strong desire to grow as a leader and learn from others while representing South
+                        Africa in discussions on global issues, strengthening communication skills through meaningful
+                        international dialogue.</p>
+                </div>
+                <div class="exp-card">
+                    <h3>Multi-Sports Captain</h3>
+                    <p>Hockey, Rugby, Swimming Led teams as Captain, fostering a competitive and motivated team culture
+                        while adapting leadership styles to suit different sports and team dynamics.</p>
+                </div>
+            </div>
+
+            <hr class="resume-divider" />
+
+            <div class="resume-skills">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                    <span>SwiftUI</span>
+                    <span>Firebase</span>
+                    <span>Firestore</span>
+                    <span>MySQL</span>
+                    <span>SQLite</span>
+                    <span>GitHub</span>
+                    <span>Java</span>
+                    <span>C++</span>
+                    <span>Agile</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-page">
+            <h1 class="contact-heading">Contact Me</h1>
+
+            <div class="contact-container">
+                <!-- Left Info Side -->
+                <div class="contact-info">
+                    <p class="contact-text">Got a question, a project, or just want to connect? I’d love to hear from
+                        you.
+                    </p>
+                    <p class="contact-text">Whether it’s tech talk, collaboration, or just a hello — feel free to reach
+                        out!</p>
+                    <p class="contact-text">Based in Latham, New York</p>
+
+                    <div class="contact-links">
+                        <a href="mailto:dekokerfw@gmail.com">dekokerfw@gmail.com</a>
+                        <a href="https://github.com/Frederichdk" target="_blank">github.com/Frederichdk</a>
+                        <a href="https://www.linkedin.com/in/frederich-de-koker/"
+                            target="_blank">linkedin.com/in/frederich-de-koker</a>
+                    </div>
+                </div>
+
+                <!-- Right Form Side -->
+                <form class="contact-form" id="contactpage">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" name="firstName" required />
+                        <input type="text" placeholder="Last Name" name="lastName" required />
+                    </div>
+                    <input type="email" placeholder="Email Address" name="email" required />
+                    <textarea placeholder="Your Message" name="message" rows="6" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer-wrapper">
+        <div class="footer-reveal">
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-row">
+                        <div class="footer-column">
+                            <h4>Contact</h4>
+                            <div class="contact-links">
+                                <a href="mailto:dekokerfw@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                                <a href="https://github.com/Frederichdk" target="_blank"><i
+                                        class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/frederich-de-koker" target="_blank"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Navigation</h4>
+                            <a href="#homepage">Home</a>
+                            <a href="#projectspage">Projects</a>
+                            <a href="#resumepage">Resume</a>
+                            <a href="#contactpage">Contact</a>
+                        </div>
+                    </div>
+                    <div class="footer-column mobile">
+                        <h4>Location</h4>
+                        <iframe class="footer-map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.8226213407293!2d-73.7572264!3d42.7491456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0b00f4992c21%3A0x3e3e9dc3d0ce4741!2sLatham%2C%20NY!5e0!3m2!1sen!2sus!4v1685132044561!5m2!1sen!2sus"
+                            width="300" height="150" style="border:0; border-radius: 10px;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                </div>
+                <div class="footer-bottom">
+                    © 2025 Frederich de Koker. All rights reserved.
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type="module" src="JS/firebase-config.js"></script>
+    <script type="module" src="JS/firebase-submit.js"></script>
+    <script src="JS/script.js"></script>
+
+
+</body>
+
+
+</html>
