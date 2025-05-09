@@ -125,7 +125,8 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 /*
- * Contact form: submits to Google Apps Script + shows success message
+ * Contact form: handle submission and show success message
+ * (only shows on first page load)
  */
 document.getElementById("contactpage").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -133,39 +134,25 @@ document.getElementById("contactpage").addEventListener("submit", function (e) {
   const form = e.target;
   const successBox = document.getElementById("form-success");
 
-  const formData = {
-    firstName: form.firstName.value,
-    lastName: form.lastName.value,
-    email: form.email.value,
-    message: form.message.value,
-  };
-
-  fetch(
-    "https://script.google.com/macros/s/AKfycbwnGeAgcatjS94Y1m5KaFDB2iUXkuSpw382IWXkvrykjJnkyERXMNX2KA57rSmriB4RoQ/exec",
-    {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
-    .then((res) => {
-      if (res.ok) {
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { Accept: "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
         form.reset();
         successBox.classList.remove("hidden");
-        setTimeout(() => {
-          successBox.classList.add("show");
-        }, 10); // allow transition
+        setTimeout(() => successBox.classList.add("show"), 10);
         setTimeout(() => {
           successBox.classList.remove("show");
           setTimeout(() => successBox.classList.add("hidden"), 300);
-        }, 5000); // auto-hide after 5s
+        }, 5000);
       } else {
-        alert(" Something went wrong. Please try again.");
+        alert("Something went wrong. Please try again.");
       }
     })
-    .catch(() => alert(" Network error. Try again later."));
+    .catch(() => alert("Network error. Try again later."));
 });
 
 /*
