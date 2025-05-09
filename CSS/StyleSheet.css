@@ -67,6 +67,10 @@
 
 /* ========== Home Screen ========== */
 
+h1 {
+  font-size: 48px; /* fallback size, won't override more specific rules */
+}
+
 html {
   scroll-behavior: smooth;
 }
