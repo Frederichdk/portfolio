@@ -128,19 +128,33 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
  * Contact form: handle submission and show success message
  * (only shows on first page load)
  */
-document.getElementById("contactpage").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const form = e.target;
+window.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactpage");
   const successBox = document.getElementById("form-success");
 
-  fetch(form.action, {
-    method: "POST",
-    body: new FormData(form),
-    headers: { Accept: "application/json" },
-  })
-    .then((response) => {
-      if (response.ok) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          form.reset();
+          successBox.classList.remove("hidden");
+          setTimeout(() => successBox.classList.add("show"), 10);
+          setTimeout(() => {
+            successBox.classList.remove("show");
+            setTimeout(() => successBox.classList.add("hidden"), 300);
+          }, 5000);
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.warn("Formspree submission warning:", error);
         form.reset();
         successBox.classList.remove("hidden");
         setTimeout(() => successBox.classList.add("show"), 10);
@@ -148,20 +162,8 @@ document.getElementById("contactpage").addEventListener("submit", function (e) {
           successBox.classList.remove("show");
           setTimeout(() => successBox.classList.add("hidden"), 300);
         }, 5000);
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch((error) => {
-      console.warn("Formspree submission warning:", error);
-      form.reset();
-      successBox.classList.remove("hidden");
-      setTimeout(() => successBox.classList.add("show"), 10);
-      setTimeout(() => {
-        successBox.classList.remove("show");
-        setTimeout(() => successBox.classList.add("hidden"), 300);
-      }, 5000);
-    });
+      });
+  });
 });
 
 /*
