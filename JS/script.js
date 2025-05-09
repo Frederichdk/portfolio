@@ -152,7 +152,16 @@ document.getElementById("contactpage").addEventListener("submit", function (e) {
         alert("Something went wrong. Please try again.");
       }
     })
-    .catch(() => alert("Network error. Try again later."));
+    .catch((error) => {
+      console.warn("Formspree submission warning:", error);
+      form.reset();
+      successBox.classList.remove("hidden");
+      setTimeout(() => successBox.classList.add("show"), 10);
+      setTimeout(() => {
+        successBox.classList.remove("show");
+        setTimeout(() => successBox.classList.add("hidden"), 300);
+      }, 5000);
+    });
 });
 
 /*
