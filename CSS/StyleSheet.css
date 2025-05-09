@@ -182,6 +182,7 @@ nav a {
 
 .top-gradient h2 {
   margin: 0;
+  margin-left: 30px;
   font-size: 40px;
   color: var(--color-text-heading);
 }
@@ -268,6 +269,16 @@ nav a {
 .about-text p {
   margin-bottom: 20px;
   line-height: 1.7;
+}
+
+@media (min-width: 1250px) {
+  .top-gradient h2 {
+    margin-left: 0px;
+  }
+  .scroll-indicator {
+    bottom: 19vw;
+    translate: -3px;
+  }
 }
 
 /* ========== Project Page ========== */
