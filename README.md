@@ -4,7 +4,7 @@ This repository contains the code for my **personal portfolio website** – a sp
 
 Built entirely with **HTML, CSS, and vanilla JavaScript**, the site highlights my journey from South Africa to the U.S., my passion for building clean and useful software, and the work I’ve done across multiple technologies and domains.  
 
-🔗 **Live site:** [frederichdk.com](https://frederichdk.com)
+🔗 **Live site:** [dekokerfw.com](https://dekokerfw.com/)
 
 ---
 
