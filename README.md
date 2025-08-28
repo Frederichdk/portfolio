@@ -29,7 +29,7 @@ Built entirely with **HTML, CSS, and vanilla JavaScript**, the site highlights m
 ---
 
 ## 📸 Preview
-*(I need to do this, for now please hit the link below)*  
+*(I need to do this, for now please hit the link below or above)*  
 
 ---
 
