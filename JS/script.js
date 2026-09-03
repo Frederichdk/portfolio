@@ -14,17 +14,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ========== Hero Scroll Animation ==========
-// Name keeps sliding (behind the PC cutout) only for the first PIN_DISTANCE
-// px of scroll, matching .hero-pin's extra height in CSS/StyleSheet.css.
-// .hero is sticky, so it stays pinned in place for that same distance
-// before the page starts scrolling normally.
+// For the first PIN_DISTANCE px of scroll (matching .hero-pin's extra
+// height in CSS/StyleSheet.css), .hero is held by position: sticky, so it
+// only moves as far as SCREEN_DRIFT drags it - much slower than a normal
+// scroll would move it. The name travels NAME_TRAVEL px in that same
+// window (faster than the screen) and shrinks toward NAME_MIN_SCALE, so it
+// visually outruns the screen and gets swallowed behind the PC cutout.
+// Past PIN_DISTANCE, .hero unsticks and the page scrolls normally.
 document.addEventListener("DOMContentLoaded", () => {
   const heroText = document.querySelector(".hero-text h1");
-  if (!heroText) return;
+  const heroSection = document.querySelector(".hero");
+  if (!heroText || !heroSection) return;
+
   const PIN_DISTANCE = 220;
+  const SCREEN_DRIFT = 50;
+  const NAME_TRAVEL = 150;
+  const NAME_MIN_SCALE = 0.15;
+
   window.addEventListener("scroll", () => {
-    const pinnedScroll = Math.min(window.scrollY, PIN_DISTANCE);
-    heroText.style.transform = `translateY(${pinnedScroll * 0.6}px)`;
+    const progress = Math.min(window.scrollY, PIN_DISTANCE) / PIN_DISTANCE;
+    heroSection.style.transform = `translateY(${-progress * SCREEN_DRIFT}px)`;
+    const scale = 1 - progress * (1 - NAME_MIN_SCALE);
+    heroText.style.transform = `translateY(${progress * NAME_TRAVEL}px) scale(${scale})`;
   });
 });
 
