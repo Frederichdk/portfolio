@@ -1,10 +1,10 @@
-# 🌐 Personal Portfolio – Frederich de Koker
+# Personal Portfolio – Frederich de Koker
 
 This repository contains the code for my **personal portfolio website** – a space where I showcase my projects, skills, and experience as a software developer.  
 
 Built entirely with **HTML, CSS, and vanilla JavaScript**, the site highlights my journey from South Africa to the U.S., my passion for building clean and useful software, and the work I’ve done across multiple technologies and domains.  
 
-🔗 **Live site:** [dekokerfw.com](https://dekokerfw.com/)
+**Live site:** [dekokerfw.com](https://dekokerfw.com/)
 
 ---
 
@@ -28,12 +28,12 @@ Built entirely with **HTML, CSS, and vanilla JavaScript**, the site highlights m
 
 ---
 
-## 📸 Preview
+## Preview
 *(I need to do this, for now please hit the link below or above)*  
 
 ---
 
-## 📬 Contact
+## Contact
 If you’d like to connect, collaborate, or just say hi:  
 
 - Email: [dekokerfw@gmail.com](mailto:dekokerfw@gmail.com)  
