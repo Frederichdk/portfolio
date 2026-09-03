@@ -71,6 +71,7 @@ nav a {
 .hero-pin {
   position: relative;
   height: calc(68vw + 220px);
+  background-color: #211606;
 }
 
 .hero {

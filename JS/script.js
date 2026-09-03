@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const PIN_DISTANCE = 220;
   const SCREEN_DRIFT = 50;
   const NAME_TRAVEL = 150;
-  const NAME_MIN_SCALE = 0.15;
+  const NAME_MIN_SCALE = 0.8;
 
   window.addEventListener("scroll", () => {
     const progress = Math.min(window.scrollY, PIN_DISTANCE) / PIN_DISTANCE;
@@ -70,10 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   leftBtn.addEventListener("click", () =>
-    carousel.scrollBy({ left: -getScrollAmount(), behavior: "smooth" })
+    carousel.scrollBy({ left: -getScrollAmount(), behavior: "smooth" }),
   );
   rightBtn.addEventListener("click", () =>
-    carousel.scrollBy({ left: getScrollAmount(), behavior: "smooth" })
+    carousel.scrollBy({ left: getScrollAmount(), behavior: "smooth" }),
   );
 
   carousel.addEventListener("scroll", updateArrows);
