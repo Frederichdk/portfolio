@@ -14,11 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ========== Hero Scroll Animation ==========
+// Name keeps sliding (behind the PC cutout) only for the first PIN_DISTANCE
+// px of scroll, matching .hero-pin's extra height in CSS/StyleSheet.css.
+// .hero is sticky, so it stays pinned in place for that same distance
+// before the page starts scrolling normally.
 document.addEventListener("DOMContentLoaded", () => {
   const heroText = document.querySelector(".hero-text h1");
   if (!heroText) return;
+  const PIN_DISTANCE = 220;
   window.addEventListener("scroll", () => {
-    heroText.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+    const pinnedScroll = Math.min(window.scrollY, PIN_DISTANCE);
+    heroText.style.transform = `translateY(${pinnedScroll * 0.6}px)`;
   });
 });
 

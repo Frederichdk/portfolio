@@ -64,8 +64,18 @@ nav a {
   display: flex;
   flex-direction: top;
 }
-.hero {
+/* Extra scroll room above .hero so it can stay pinned in place for a
+   short beat while .hero-text slides behind the PC cutout before the
+   page scrolls normally. Keep this height in sync with PIN_DISTANCE
+   in the "Hero Scroll Animation" block in JS/script.js. */
+.hero-pin {
   position: relative;
+  height: calc(68vw + 220px);
+}
+
+.hero {
+  position: sticky;
+  top: 0;
   height: 68vw;
   width: 100%;
   background-image: url("../Assets/Images/RugbyBG.png");
@@ -859,6 +869,10 @@ footer .contact-links a:hover {
   nav a {
     margin: 0 4vw;
     font-size: 4vw;
+  }
+
+  .hero-pin {
+    height: calc(150vw + 220px);
   }
 
   .hero {
